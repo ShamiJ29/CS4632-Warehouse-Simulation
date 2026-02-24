@@ -1,5 +1,5 @@
 from collections import deque
-from robot import Robot
+from src.c_robot import Robot
 import math
 
 WAREHOUSE_SIZE = 50

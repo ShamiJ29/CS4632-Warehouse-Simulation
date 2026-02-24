@@ -1,8 +1,9 @@
 import heapq
 import random
-from warehouse import Warehouse
-from order import Order
-from metrics import MetricsCollector
+from src.b_warehouse import Warehouse
+from src.d_order import Order
+from src.e_metrics import MetricsCollector
+from src.c_robot import Robot
 
 SIM_TIME = 480  # minutes (8-hour shift)
 LAMBDA = 10     # orders per hour
