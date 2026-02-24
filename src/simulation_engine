@@ -1,0 +1,47 @@
+import heapq
+import random
+from warehouse import Warehouse
+from order import Order
+from metrics import MetricsCollector
+
+SIM_TIME = 480  # minutes (8-hour shift)
+LAMBDA = 10     # orders per hour
+
+ORDER_ARRIVAL = "ORDER_ARRIVAL"
+ASSIGN_ROBOT = "ASSIGN_ROBOT"
+
+event_queue = []
+current_time = 0
+
+def schedule_event(time, event_type, payload=None):
+    heapq.heappush(event_queue, (time, event_type, payload))
+
+def exponential_interarrival():
+    return random.expovariate(LAMBDA / 60)
+
+def run():
+    global current_time
+
+    warehouse = Warehouse()
+    metrics = MetricsCollector()
+
+    schedule_event(exponential_interarrival(), ORDER_ARRIVAL)
+
+    while event_queue and current_time < SIM_TIME:
+        current_time, event, payload = heapq.heappop(event_queue)
+
+        if event == ORDER_ARRIVAL:
+            order = Order(current_time)
+            warehouse.add_order(order)
+            schedule_event(current_time + exponential_interarrival(), ORDER_ARRIVAL)
+            schedule_event(current_time, ASSIGN_ROBOT)
+
+        elif event == ASSIGN_ROBOT:
+            completed_orders = warehouse.process_orders(current_time)
+            for o in completed_orders:
+                metrics.record_order(o, current_time)
+
+    metrics.report()
+
+if __name__ == "__main__":
+    run()
