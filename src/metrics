@@ -1,0 +1,12 @@
+class MetricsCollector:
+    def __init__(self):
+        self.fulfillment_times = []
+
+    def record_order(self, order, current_time):
+        self.fulfillment_times.append(order.completion_time - order.arrival_time)
+
+    def report(self):
+        if self.fulfillment_times:
+            avg_time = sum(self.fulfillment_times) / len(self.fulfillment_times)
+            print(f"Orders completed: {len(self.fulfillment_times)}")
+            print(f"Average fulfillment time: {avg_time:.2f} minutes")
