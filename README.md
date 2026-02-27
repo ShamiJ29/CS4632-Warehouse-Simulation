@@ -34,20 +34,25 @@ Simulation Type: Discrete-Event Simulation
 ## Project Status
 Implemented so far : 
 - Poisson order arrivals
-- Discrete-event simulation
-- robot assignment (manhattan distance)
 - Performance metrics collection
+- robot assignment (manhattan distance)
 - Entities : Warehouse, Robot, Order, Metrics
 
 ## In Progress 
 - inventory restocking logic (trigger restock when it's below the threshold )
+- performance metrics collection
 
 ## TO do 
 - Advanced robot routing
-- GUI or enhanced output visualization
+- Simulation Parameter Configuration
+- Metrics Validation and Edge Case Testing
+- Visualization or Output Formatting Improvement
+- Model Valdiation and Consistency Checks
 
 ## Changes from Original Proposal 
 - Refactores source files with prefixes so the files will stay in the correct order
+- Originally though of going with Java, changed to Python
+  
 ## Installation Instructions
 
   ## Requirements : Python 3.8+, and no external packages are required
