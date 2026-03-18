@@ -7,3 +7,5 @@ class Robot:
         self.robot_id = robot_id
         self.position = (0, 0)
         self.available = True
+        # track total busy time 
+        self.busy_time = 0
