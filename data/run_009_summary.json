@@ -1,0 +1,8 @@
+{
+    "completed_orders": 66,
+    "average_fulfillment_time": 30.696969696969695,
+    "parameters": {
+        "SIM_TIME": 480,
+        "LAMBDA": 26
+    }
+}
