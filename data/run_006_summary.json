@@ -1,6 +1,6 @@
 {
-    "completed_orders": 75,
-    "average_fulfillment_time": 28.866666666666667,
+    "completed_orders": 62,
+    "average_fulfillment_time": 33.435483870967744,
     "parameters": {
         "SIM_TIME": 480,
         "LAMBDA": 20
