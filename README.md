@@ -13,14 +13,19 @@ This project simulates warehouse operations including order processing,
 inventory management, and robot-assisted picking and delivery.
 
 The goal is to analyze order fulfillment time, robot utilization,
-and storage efficiency under stochastic order arrivals.
+and storage efficiency under order arrivals.
 
 ## Features
-Random order generation
-Inventory tracking
-Robot routing
-Performance metrics collection
-Discrete-event simulation model
+Poisson-based random order generation
+Discrete-event simulation engine
+Robot assignment using Manhattan distance
+Advanced routing (distance + queue-based prioritization)
+Inventory tracking with restocking policy
+Multi-run simulation execution (10+ runs)
+Automated data collection
+Export of results to CVS and JSON
+Event logging time stamps
+
 
 ## Technology
 Language: Python 
@@ -28,39 +33,66 @@ Simulation Type: Discrete-Event Simulation
 
 ## Repository Structure
 /src        -> Simulation source code  
-/docs       -> Project reports and UML diagrams  
-/data       -> Input/output datasets  
+/docs       -> Reports and documentation 
+/data       -> Output data (CSV/JSON) 
 
-## Project Status
-Implemented so far : 
-- Poisson order arrivals
-- Performance metrics collection
-- robot assignment (manhattan distance)
-- Entities : Warehouse, Robot, Order, Metrics
 
-## In Progress 
-- inventory restocking logic (trigger restock when it's below the threshold )
-- performance metrics collection
+---
 
-## TO do 
-- Advanced robot routing
-- Simulation Parameter Configuration
-- Metrics Validation and Edge Case Testing
-- Visualization or Output Formatting Improvement
-- Model Valdiation and Consistency Checks
+## Implementation Status (M3 Complete)
 
-## Changes from Original Proposal 
-- Refactores source files with prefixes so the files will stay in the correct order
-- Originally though of going with Java, changed to Python
-  
+### Completed Features
+- Poisson order arrival model
+- Full event-driven simulation engine
+- Robot assignment and routing logic
+- Inventory management with restocking
+- Performance metrics tracking
+- Multi-run simulation with parameter variation
+- Data export (time-series, event logs, summary statistics)
+
+
+## Simulation Parameters
+The simulation allows variation of:
+- Order arrival rate (LAMBDA)
+- Simulation duration (SIM_TIME)
+- Number of robots
+- Randomized order locations
+
+
+## Data Collection
+The simulation collects:
+
+### Time-Series Data
+- Queue length over time
+- Completed orders
+
+### Event Data
+- Event type (ORDER_ARRIVAL, ASSIGN_ROBOT)
+- Simulation timestamp
+- Real-world timestamp
+
+### Summary Statistics
+- Total completed orders
+- Average fulfillment time
+- Simulation parameters
+
+All data is exported in structured formats:
+- CSV (time-series, events)
+- JSON (summary)
+
+
 ## Installation Instructions
 
-  ## Requirements : Python 3.8+, and no external packages are required
+### Requirements
+- Python 3.8+
+- No external libraries required
 
 ### Setup
-- clone this : git clone https://github.com/ShamiJ29/CS4632-Warehouse-Simulation.git
+```bash
+git clone https://github.com/ShamiJ29/CS4632-Warehouse-Simulation.git
+cd CS4632-Warehouse-Simulation
 
-- navigate to the folder : cd CS4632-Warehouse-Simulation
+
 
 This should be all the correct files : a_simulation_engine.py  
 b_warehouse.py  
