@@ -87,28 +87,28 @@ All data is exported in structured formats:
 - Python 3.8+
 - No external libraries required
 
-### Setup
-```bash
-git clone https://github.com/ShamiJ29/CS4632-Warehouse-Simulation.git
+### Setup 
+bash : git clone https://github.com/ShamiJ29/CS4632-Warehouse-Simulation.git
 cd CS4632-Warehouse-Simulation
 
+Run the Simulation : python3 -m src.a_simulation_engine
 
-
-This should be all the correct files : a_simulation_engine.py  
+This should be all the correct files : 
+a_simulation_engine.py  
 b_warehouse.py  
 c_robot.py  
 d_order.py  
 e_metrics.py  
 __init__.py
 
+Expected output should be the total orders completed, average fulfillment time per run and CSV and JSON data files generated in /data
 
-Expected output should be the total orders completed and the average fulfillment time. 
 
 ## Architectural Overview
-- a_simulation_engine.py - simulation engine and event scheduler
-- b_warehouse.py - warehouse class, manages order queue and robot assignments
-- c_robot.py - robot entity, tracks position and availabiliy
-- d_order.py - order entity, tracks arrival, location and completion time
+- a_simulation_engine.py - handles event scheduling and simulation execution
+- b_warehouse.py - manages order queue, robots, and inventory
+- c_robot.py - represents robot behavior and state
+- d_order.py - defines order attributes and lifecycle
 - e_metrics.py - collects performance metrics
 
 ## UML Design : 
@@ -117,3 +117,9 @@ Expected output should be the total orders completed and the average fulfillment
 - Robot --> c_robot.py
 - Order --> d_order.py
 - MetricsCollector --> e_metrics.py
+
+## Changes from M3
+- Enhanced routing logic to include queue-aware prioritization
+- Added full data collection and export system
+
+Conclusion notes : This M3 project demonstrates the complete implementation of the features and also sumtiple simulation runs with varied parameters. It also has a comprehensive data collection and a structures output for analysis. 
