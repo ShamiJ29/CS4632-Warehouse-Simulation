@@ -39,7 +39,6 @@ Simulation Type: Discrete-Event Simulation
 
 ---
 
-## Implementation Status (M3 Complete)
 
 ### Completed Features
 - Poisson order arrival model
@@ -58,9 +57,6 @@ The simulation allows variation of:
 - Number of robots
 - Randomized order locations
 
-
-## Data Collection
-The simulation collects:
 
 ### Time-Series Data
 - Queue length over time
@@ -118,8 +114,26 @@ Expected output should be the total orders completed, average fulfillment time p
 - Order --> d_order.py
 - MetricsCollector --> e_metrics.py
 
-## Changes from M2 --> M3
-- Enhanced routing logic to include queue-aware prioritization
-- Added full data collection and export system
+## How to Run the simulation 
+### 1. Clone the repository
+```bash
+git clone https://github.com/ShamiJ29/CS4632-Warehouse-Simulation.git
+cd CS4632-Warehouse-Simulation
 
-Conclusion notes : This M3 project demonstrates the complete implementation of the features and also sumtiple simulation runs with varied parameters. It also has a comprehensive data collection and a structures output for analysis. 
+Run the simulation (in terminal) : python3 -m src.a_simulation_engine 
+
+Example : ORDER_ARRIVAL
+ASSIGN_ROBOT
+ORDER_ARRIVAL
+ASSIGN_ROBOT
+
+Run 1 complete: Orders=85, Avg Time=34.68 min
+Run 2 complete: Orders=72, Avg Time=33.32 min
+Run 3 complete: Orders=78, Avg Time=32.92 min
+...
+
+## Project Structure
+
+/src        → Core simulation code  
+/data       → Output files (CSV, JSON, logs)  
+/docs       → Reports and documentation  
