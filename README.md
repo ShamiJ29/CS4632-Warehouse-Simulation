@@ -8,7 +8,7 @@ CS 4632 – Modeling and Simulation
 ## Author
 Shamitha John
 
-## Project Description
+## Project Description - Final Submission
 This project simulates warehouse operations including order processing,
 inventory management, and robot-assisted picking and delivery.
 
